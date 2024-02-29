@@ -9,11 +9,14 @@ def generateCertificate(name):
     draw = ImageDraw.Draw(certificate)
     font = ImageFont.truetype('./Fonts/edwardian-script-itc-bold.ttf', size=100)
 
-    # text_width, text_height = font.getsize(name)
-    # width, height = certificate.size
+    text_width = font.getlength(name)
+    # print(text_width)
+    width, height = certificate.size
+    # print(width)
 
-    # x = (width - text_width) / 2
-    x = 650
+    x = (width - text_width) / 2 # Centering the text
+    # print(x)
+    # x = 810
     y = 553
 
     draw.text((x, y), name, fill='black', font=font)
@@ -25,7 +28,9 @@ def generateCertificate(name):
 
 def main():
     try:
-        csv = pd.read_csv('../CSVs/volunteers.csv')
+        # csv = pd.read_csv('../CSVs/volunteers.csv')
+        csv = pd.read_csv('../CSVs/test.csv')
+
 
         nameList = csv['Name'].tolist()
 
