@@ -3,13 +3,16 @@ from PIL import Image, ImageDraw, ImageFont
 import concurrent.futures
 
 
-def generateCertificate(name):
-    certificate = Image.open('./Designs/CertOfPart_Testing.png')
+def generateCertificate(name, regNo):
+    # certificate = Image.open('./Designs/CertOfPart_Testing.png')
+    certificate = Image.open('./Designs/HashTech_Certificate_of_Appriciation.png')
 
     draw = ImageDraw.Draw(certificate)
-    font = ImageFont.truetype('./Fonts/edwardian-script-itc-bold.ttf', size=100)
+    # font = ImageFont.truetype('./Fonts/edwardian-script-itc-bold.ttf', size=100)
+    font = ImageFont.truetype('./Fonts/tahomabd.ttf', size=60)
 
-    text_width = font.getlength(name)
+    text = f"Mr./Ms. {name}"
+    text_width = font.getlength(text)
     # print(text_width)
     width, height = certificate.size
     # print(width)
@@ -17,13 +20,15 @@ def generateCertificate(name):
     x = (width - text_width) / 2 # Centering the text
     # print(x)
     # x = 810
-    y = 553
+    y = 785
 
-    draw.text((x, y), name, fill='black', font=font)
+    draw.text((x, y), text, fill='black', font=font)
 
     # certificate.show()
 
-    certificate.save(f'./Generated/{name}.png')
+    certificate.save(f'./Generated/{regNo}.png')
+    certificate.save(f'../SendEmails/Attachments/{regNo}.png')
+    certificate.close()
     return name
 
 def main():
@@ -33,9 +38,10 @@ def main():
 
 
         nameList = csv['Name'].tolist()
+        regList = csv['Registration Number'].tolist()
 
         with concurrent.futures.ProcessPoolExecutor() as executor:
-            futures = [executor.submit(generateCertificate, name) for name in nameList]
+            futures = [executor.submit(generateCertificate, name, regNo) for name, regNo in zip(nameList, regList)]
             for future in concurrent.futures.as_completed(futures):
                 name = future.result()
                 print(f'Certificate generated for {name}!')

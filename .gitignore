@@ -1,2 +1,4 @@
 ./CSVs/test.csv
 ./CSVs/volunteers.csv
+./SendEmails/token.json
+./SendEmails/credentials.json
