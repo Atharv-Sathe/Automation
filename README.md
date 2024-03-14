@@ -26,7 +26,7 @@ _**Note** : The script will ask you to login to your email account and give requ
 11. Information about the sent emails will be saved under Logs directory in the log file.
 12. After the completion of procedure DeleteAttachments.py and DelGen.py can be run to delete all files in the Generated and Attachments directory respectively.
 
-For more information reach out to me at @Atharv-Sathe.
+For more information reach out to me at atharvsathe28704@gmail.com.
 
 #### Regards
 **_TheBug_**
