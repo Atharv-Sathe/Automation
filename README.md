@@ -10,6 +10,7 @@ This repository contains python scripts to automate small but repeatitive and te
 ## Folder Structure
 1. **CSVs** : Contains all CSV files used in the scripts.
 2. **DesGenAuto** : Contains all required files for creating certificates/letters for participants/members.
+3. **SendEmails** : Contains all required files for sending emails to the participants/members.
 
 ## Work Flow
 1. Add your CSV file in the CSVs folder.

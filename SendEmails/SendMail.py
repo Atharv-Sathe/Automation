@@ -78,7 +78,7 @@ def gmail_send_attachment(name, regNo, email):
 
             # headers
             mime_message["To"] = f"{email}"
-            mime_message["From"] = "atharvsathe28704@gmail.com"
+            mime_message["From"] = os.environ.get("EMAIL_ATHARVS")
             mime_message["Subject"] = "This is a Test Mail!"
             mime_message.set_content(message_text, subtype='html')
 
