@@ -33,7 +33,6 @@ To install the dependencies run the following command in the terminal.
 **_For security reasons certain folders like CSVs, Designs, Generated, Attachements have not been uploaded._**
 
 ## DesGen.py Documentation
-# Certificate Generator
 
 This script generates certificates for a list of names and registration numbers provided in a CSV file. It uses the Python Imaging Library (PIL) to open a certificate template, draw the name and registration number on the certificate, and save the generated certificate as a PNG file.
 
